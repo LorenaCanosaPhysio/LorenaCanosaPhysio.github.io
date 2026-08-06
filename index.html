@@ -1,0 +1,725 @@
+<!--
+  Página principal (generada siguiendo design-taste-frontend / SKILL2.md).
+  Design Read: portfolio profesional / academico (fisioterapeuta, doctora, docente)
+  para pacientes, instituciones deportivas y colaboradores academicos, en un lenguaje
+  editorial-cientifico (tipografia sans de precision + mono para datos).
+  Dials -> DESIGN_VARIANCE: 7 · MOTION_INTENSITY: 5 · VISUAL_DENSITY: 3
+  Sistema: CSS nativo (sin build), un solo archivo.
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lorena Canosa - Fisioterapia, ciencia y docencia</title>
+  <meta name="description" content="Lorena Canosa. Doctora en Biomedicina y fisioterapeuta especializada en fisioterapia deportiva, ecografia musculoesqueletica y salud de la mujer. Docencia e investigacion en Europa." />
+  <meta name="theme-color" content="#101312" />
+  <meta property="og:title" content="Lorena Canosa - Fisioterapia, ciencia y docencia" />
+  <meta property="og:description" content="Doctora en Biomedicina y fisioterapeuta especializada en fisioterapia deportiva, ecografia musculoesqueletica y salud de la mujer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="perfil.jpg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-small.png" />
+  <link rel="icon" type="image/png" sizes="440x440" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <style>
+    /* Self-hosted fonts: no request to Google's servers at page load (see GDPR note in chat) */
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/ibm-plex-mono-400-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/ibm-plex-mono-400-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/ibm-plex-mono-500-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/ibm-plex-mono-500-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 300 600; font-display: swap; src: url('fonts/public-sans-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 300 600; font-display: swap; src: url('fonts/public-sans-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500 700; font-display: swap; src: url('fonts/plus-jakarta-sans-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500 700; font-display: swap; src: url('fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    :root {
+      --bg: #F5F6F3;
+      --bg-soft: #ECEDE9;
+      --bg-dark: #101312;
+      --bg-dark-tile: rgba(245,246,243,0.05);
+      --bg-dark-tile-hover: rgba(245,246,243,0.08);
+      --fg: #101312;
+      --fg-soft: #4B4F4C;
+      --fg-faint: #83867F;
+      --fg-on-dark: #F5F6F3;
+      --fg-on-dark-soft: rgba(245,246,243,0.6);
+      --fg-on-dark-faint: rgba(245,246,243,0.4);
+      --line: #DEDFDA;
+      --line-on-dark: rgba(245,246,243,0.14);
+      --accent: #1A47CC;
+      --accent-on-dark: #6B8FEC;
+      --accent-soft: #E8EEFB;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --container: 1280px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121513;
+        --bg-soft: #191D1A;
+        --bg-dark: #0B0D0C;
+        --bg-dark-tile: rgba(255,255,255,0.05);
+        --bg-dark-tile-hover: rgba(255,255,255,0.08);
+        --fg: #F2F3F0;
+        --fg-soft: #B7BAB4;
+        --fg-faint: #7D8079;
+        --fg-on-dark: #F2F3F0;
+        --fg-on-dark-soft: rgba(242,243,240,0.62);
+        --fg-on-dark-faint: rgba(242,243,240,0.4);
+        --line: rgba(255,255,255,0.12);
+        --line-on-dark: rgba(255,255,255,0.12);
+        --accent: #6B8FEC;
+        --accent-on-dark: #6B8FEC;
+        --accent-soft: rgba(107,143,236,0.16);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Public Sans', sans-serif; font-weight: 300; background: var(--bg); color: var(--fg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+    .container { max-width: var(--container); margin-inline: auto; }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Grain restricted to a single fixed, non-scrolling layer (perf: no repaint on scroll) */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.03;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Native CSS scroll-driven progress bar. No JS scroll listener.
+       Progressive enhancement: browsers without animation-timeline support
+       simply show it at scaleX(0), which is harmless. */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+      background: var(--accent); transform-origin: left; transform: scaleX(0);
+      z-index: 300;
+      animation-name: grow-progress;
+      animation-timeline: scroll(root);
+      animation-fill-mode: both;
+    }
+    @keyframes grow-progress { to { transform: scaleX(1); } }
+
+    #scroll-sentinel { position: absolute; top: 0; left: 0; height: 44px; width: 1px; }
+
+    /* ── NAV ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 250ms var(--ease-out), box-shadow 250ms var(--ease-out); }
+    nav.scrolled { padding-block: 0.65rem; box-shadow: 0 2px 24px rgba(26,71,204,0.08); }
+    .nav-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.1rem 4rem; }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: stretch; gap: 5px; width: 32px; height: 32px; padding: 0; border: none; background: transparent; cursor: pointer; }
+    .nav-toggle span { display: block; height: 2px; background: var(--fg); transition: transform 250ms var(--ease-out), opacity 250ms var(--ease-out); }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    nav.scrolled .nav-inner { padding-block: 0.75rem; }
+    .nav-logo { display: inline-flex; align-items: baseline; gap: 0.6rem; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--fg); white-space: nowrap; }
+    .nav-logo-tag { font-size: 0.68rem; color: var(--fg-faint); letter-spacing: 0.03em; }
+    .nav-logo-tag::before { content: '·'; margin-right: 0.6rem; color: var(--fg-faint); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { position: relative; font-size: 0.85rem; color: var(--fg-soft); text-decoration: none; padding-bottom: 0.3rem; transition: color 200ms var(--ease-out); }
+    .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--accent); transition: right 250ms var(--ease-out); }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+    .lang-toggle { font-family: 'IBM Plex Mono', monospace; border: 1px solid var(--line); background: transparent; color: var(--fg); padding: 0.5rem 0.8rem; font-size: 0.75rem; letter-spacing: 0.04em; cursor: pointer; transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 160ms var(--ease-out); }
+    .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-toggle:active { transform: scale(0.95); }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; font-size: 0.85rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: transform 160ms var(--ease-out), background 200ms var(--ease-out), border-color 200ms var(--ease-out), opacity 200ms var(--ease-out); }
+    .btn-primary { background: var(--fg); color: var(--bg); }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0) scale(0.97); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--fg); }
+    .btn-ghost:hover { border-color: var(--fg); }
+    .btn-ghost:active { transform: scale(0.97); }
+
+    /* ── HERO ── */
+    #hero { min-height: 100dvh; display: grid; grid-template-columns: 1.25fr 1fr; padding-top: 68px; }
+    .hero-left { display: flex; flex-direction: column; justify-content: center; gap: 1.6rem; padding: 0 4rem; max-width: 640px; }
+    .hero-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: clamp(2.4rem, 4.6vw, 3.8rem); line-height: 1.08; letter-spacing: -0.02em; color: var(--fg); opacity: 0; animation: fadeUp 0.7s 0.15s var(--ease-out) forwards; }
+    .hero-title .accent { color: var(--accent); }
+    .hero-sub { font-size: 1.05rem; font-weight: 300; color: var(--fg-soft); max-width: 46ch; line-height: 1.7; opacity: 0; animation: fadeUp 0.7s 0.3s var(--ease-out) forwards; }
+    .hero-cta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.45s var(--ease-out) forwards; }
+
+    .hero-right { position: relative; overflow: hidden; background: var(--bg-soft); }
+    .hero-photo { width: 100%; height: 100%; object-fit: cover; object-position: top center; opacity: 0; transform: scale(1.05); filter: blur(6px) grayscale(30%) contrast(1.04); animation: heroReveal 1s 0.25s var(--ease-out) forwards; }
+    .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(195deg, transparent 55%, rgba(11,13,12,0.32) 100%); pointer-events: none; }
+    .hero-photo-placeholder { display: none; width: 100%; height: 100%; align-items: center; justify-content: center; flex-direction: column; gap: 0.6rem; color: var(--accent); opacity: 0.6; }
+
+    /* ── SECTION SCAFFOLDING ── */
+    section { padding: clamp(4rem, 8vw, 7rem) 4rem; }
+    .eyebrow-none { /* intentionally no eyebrow utility class: headlines carry sections alone */ }
+    .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--fg); }
+    .section-title .accent { color: var(--accent); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg); }
+    .about-copy { max-width: 62ch; }
+    .about-copy p { font-size: 1rem; font-weight: 300; color: var(--fg-soft); line-height: 1.85; margin-top: 1.25rem; }
+    .about-grid { margin-top: 3.5rem; display: grid; grid-template-columns: 260px 1fr; gap: 3rem; align-items: start; }
+    .about-image { position: relative; aspect-ratio: 3/4; overflow: hidden; background: var(--bg-soft); }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--ease-in-out); }
+    .about-image-placeholder { display: none; width: 100%; height: 100%; align-items: center; justify-content: center; color: var(--accent); opacity: 0.6; font-size: 0.8rem; text-align: center; padding: 1rem; }
+    @media (hover: hover) and (pointer: fine) {
+      .about-image:hover img { transform: scale(1.05); }
+    }
+    .pillars { display: grid; gap: 0; }
+    .pillar-row { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+    .pillars { border-top: 1px solid var(--line); }
+    .pillar-num { font-family: 'IBM Plex Mono', monospace; color: var(--accent); font-size: 0.9rem; }
+    .pillar-body h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1rem; color: var(--fg); margin-bottom: 0.3rem; }
+    .pillar-body p { font-size: 0.85rem; color: var(--fg-faint); font-weight: 300; line-height: 1.6; }
+
+    /* ── EXPERTISE (ledger) ── */
+    #expertise { background: var(--bg); }
+    .ledger { margin-top: 3.5rem; border-top: 1px solid var(--line); }
+    .ledger-row { position: relative; display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding-block: 2.2rem; border-bottom: 1px solid var(--line); transition: background 250ms var(--ease-out); }
+    .ledger-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform 300ms var(--ease-out); }
+    .ledger-row:hover { background: var(--accent-soft); }
+    .ledger-row:hover::before { transform: scaleY(1); }
+    .ledger-num { font-family: 'IBM Plex Mono', monospace; font-size: clamp(1.5rem, 2.4vw, 2rem); color: var(--accent); line-height: 1; transition: color 250ms var(--ease-out); }
+    .ledger-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1.25rem; color: var(--fg); margin-bottom: 0.5rem; }
+    .ledger-body p { font-size: 0.92rem; color: var(--fg-soft); font-weight: 300; line-height: 1.7; max-width: 60ch; }
+    .section-link { display: inline-block; margin-top: 2rem; font-size: 0.85rem; color: var(--fg-soft); text-decoration: none; border-bottom: 1px solid var(--line); transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+    .section-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── HIGHLIGHTS (deliberate dark color-block, once per page) ── */
+    #highlights { background: var(--bg-dark); color: var(--fg-on-dark); }
+    #highlights .section-title { color: var(--fg-on-dark); }
+    .bento { margin-top: 3.5rem; display: grid; grid-template-columns: 1.3fr 1fr; grid-auto-rows: 1fr; gap: 1.25rem; }
+    .bento-tile { display: flex; flex-direction: column; background: var(--bg-dark-tile); border: 1px solid var(--line-on-dark); overflow: hidden; transition: background 250ms var(--ease-out), transform 250ms var(--ease-out); }
+    .bento-tile:hover { background: var(--bg-dark-tile-hover); transform: translateY(-4px); }
+    .bento-featured { grid-row: span 2; }
+    .bento-photo { width: 100%; height: clamp(220px, 28vw, 340px); object-fit: cover; display: block; }
+    .bento-small .bento-photo { height: clamp(150px, 16vw, 190px); }
+    .bento-photo-placeholder { display: none; width: 100%; height: clamp(220px, 28vw, 340px); align-items: center; justify-content: center; flex-direction: column; gap: 0.6rem; color: var(--fg-on-dark-faint); font-size: 0.78rem; text-align: center; padding: 1rem; border-bottom: 1px dashed var(--line-on-dark); }
+    .bento-small .bento-photo-placeholder { height: clamp(150px, 16vw, 190px); }
+    .bento-body { padding: 1.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+    .bento-type { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.04em; color: var(--accent-on-dark); }
+    .bento-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1.15rem; color: var(--fg-on-dark); }
+    .bento-body p { font-size: 0.88rem; color: var(--fg-on-dark-soft); font-weight: 300; line-height: 1.6; }
+    .bento-caption { font-size: 0.76rem; color: var(--fg-on-dark-faint); line-height: 1.5; }
+
+    /* ── TRAJECTORY (timeline rail) ── */
+    #trajectory { background: var(--bg-soft); }
+    .trajectory-head { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .timeline-grid { margin-top: 3.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .timeline-col h3 { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--fg-faint); text-transform: uppercase; margin-bottom: 1.75rem; }
+    .timeline-row { border-left: 2px solid var(--line); padding: 0 0 1.75rem 1.25rem; margin-bottom: 0.25rem; transition: border-color 200ms var(--ease-out); }
+    .timeline-row:last-child { padding-bottom: 0; }
+    .timeline-row:hover { border-left-color: var(--accent); }
+    .timeline-year { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--accent); margin-bottom: 0.35rem; display: block; }
+    .timeline-role { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 500; font-size: 1.02rem; color: var(--fg); margin-bottom: 0.2rem; }
+    .timeline-place { font-size: 0.85rem; color: var(--fg-faint); font-weight: 300; }
+
+    /* ── CONTACT (deliberate centered close) ── */
+    #contact { background: var(--bg); text-align: center; }
+    #contact .container { max-width: 640px; margin-inline: auto; }
+    .contact-sub { font-size: 1rem; font-weight: 300; color: var(--fg-soft); margin-top: 1rem; }
+    .contact-email { display: inline-block; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.1rem); color: var(--fg); text-decoration: none; border-bottom: 1px solid transparent; margin-top: 2.25rem; transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 160ms var(--ease-out); }
+    .contact-email:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-email:active { transform: scale(0.98); }
+    .contact-socials { margin-top: 2.5rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+    .contact-social-link { font-size: 0.85rem; color: var(--fg-soft); text-decoration: none; padding-bottom: 0.25rem; border-bottom: 1px solid transparent; transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+    .contact-social-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    footer p { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--fg-faint); }
+    .footer-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--fg-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+    .footer-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes heroReveal { from { opacity: 0; transform: scale(1.05); filter: blur(6px) grayscale(30%) contrast(1.04); } to { opacity: 1; transform: scale(1); filter: blur(0) grayscale(30%) contrast(1.04); } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .hero-title, .hero-sub, .hero-cta, .hero-photo { opacity: 1; animation: none; transform: none; }
+      .hero-photo { filter: grayscale(30%) contrast(1.04); }
+      .reveal { opacity: 1; transform: none; }
+      #scroll-progress { animation: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1080px) {
+      .nav-inner { padding: 1rem 2rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-logo-tag { display: none; }
+      section { padding: 4rem 2rem; }
+      .hero-left { padding: 0 2rem; }
+    }
+    @media (max-width: 860px) {
+      #hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 6.5rem 2rem 3rem; max-width: none; }
+      .hero-right { min-height: 60vw; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-image { aspect-ratio: 16/9; max-width: 320px; }
+      .bento { grid-template-columns: 1fr; grid-auto-rows: auto; }
+      .bento-featured { grid-row: auto; }
+      .timeline-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 620px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--bg); border-bottom: 1px solid var(--line);
+        max-height: 0; overflow: hidden;
+        transition: max-height 300ms var(--ease-in-out);
+      }
+      .nav-links.open { max-height: 320px; }
+      .nav-links li { border-top: 1px solid var(--line); }
+      .nav-links a { display: block; padding: 1rem 1.5rem; }
+      .nav-links a::after { display: none; }
+      .hero-cta { flex-direction: column; align-items: stretch; }
+      .btn { text-align: center; justify-content: center; }
+      .ledger-row { grid-template-columns: 56px 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-sentinel" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner container">
+      <a href="#hero" class="nav-logo"><span data-i18n="nav.logoName">Dra. Lorena Canosa</span> <span class="nav-logo-tag mono" data-i18n="nav.logoTag">Fisioterapia · PhD · MBA</span></a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="#trajectory" data-i18n="nav.trajectory">Trayectoria</a></li>
+          <li><a href="servicios.html" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="investigacion.html" data-i18n="nav.research">Investigación</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Cambiar idioma">EN</button>
+        <button id="navToggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-left">
+      <h1 class="hero-title" data-i18n-html="hero.title">La ciencia detrás de <span class="accent">tu recuperación.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Doctora en Biomedicina especializada en fisioterapia deportiva, ecografía musculoesquelética y salud de la mujer deportista.</p>
+      <div class="hero-cta">
+        <a href="#trajectory" class="btn btn-primary" data-i18n="hero.ctaPrimary">Ver trayectoria</a>
+        <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Contactar</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="perfil.jpg" class="hero-photo" data-i18n-alt="hero.photoAlt" alt="Lorena Canosa, fisioterapeuta" fetchpriority="high" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+      <div class="hero-photo-placeholder">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <p class="mono" style="font-size:0.75rem;" data-i18n="hero.placeholder">Añade perfil.jpg</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="about.title">Del laboratorio a la camilla.</h2>
+      <div class="about-copy reveal">
+        <p data-i18n="about.p1">Fisioterapeuta y doctora en Biomedicina, con más de una década combinando práctica clínica, docencia universitaria e investigación. Traduzco la evidencia científica en resultados reales para pacientes y deportistas.</p>
+        <p data-i18n="about.p2">Coordino las relaciones internacionales del Departamento de Fisioterapia en la Universidad Europea de Madrid y colaboro con universidades europeas en formación de posgrado e investigación.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <img src="sobre-mi.jpg" data-i18n-alt="about.photoAlt" alt="Lorena Canosa en consulta" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="about-image-placeholder">
+            <span data-i18n="about.placeholder">Añade sobre-mi.jpg</span>
+          </div>
+        </div>
+        <div class="pillars reveal">
+          <div class="pillar-row">
+            <span class="pillar-num mono">01</span>
+            <div class="pillar-body">
+              <h4 data-i18n="about.pillar1.title">Clínica</h4>
+              <p data-i18n="about.pillar1.text">Prevención, tratamiento y Return to Play desde la evidencia.</p>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <span class="pillar-num mono">02</span>
+            <div class="pillar-body">
+              <h4 data-i18n="about.pillar2.title">Docencia</h4>
+              <p data-i18n="about.pillar2.text">Formación de grado, posgrado y programas internacionales.</p>
+            </div>
+          </div>
+          <div class="pillar-row">
+            <span class="pillar-num mono">03</span>
+            <div class="pillar-body">
+              <h4 data-i18n="about.pillar3.title">Investigación</h4>
+              <p data-i18n="about.pillar3.text">Proyectos europeos de práctica basada en la evidencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="expertise">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="expertise.title">Cuatro áreas, un mismo enfoque.</h2>
+      <div class="ledger">
+        <div class="ledger-row reveal">
+          <span class="ledger-num">01</span>
+          <div class="ledger-body">
+            <h3 data-i18n="expertise.card1.title">Ecografía musculoesquelética</h3>
+            <p data-i18n="expertise.card1.text">Diagnóstico por imagen para el seguimiento objetivo de lesiones y la toma de decisiones clínicas en deportistas de alto nivel.</p>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <span class="ledger-num">02</span>
+          <div class="ledger-body">
+            <h3 data-i18n="expertise.card2.title">Prevención y Return to Play</h3>
+            <p data-i18n="expertise.card2.text">Acompañamiento desde la lesión hasta el alta deportiva, con programas de pretemporada para reducir el riesgo.</p>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <span class="ledger-num">03</span>
+          <div class="ledger-body">
+            <h3 data-i18n="expertise.card3.title">Consultoría clínica</h3>
+            <p data-i18n="expertise.card3.text">Protocolos basados en la evidencia para instituciones deportivas, centros de salud y equipos profesionales.</p>
+          </div>
+        </div>
+        <div class="ledger-row reveal">
+          <span class="ledger-num">04</span>
+          <div class="ledger-body">
+            <h3 data-i18n="expertise.card4.title">Docencia y formación</h3>
+            <p data-i18n="expertise.card4.text">Clases de grado y posgrado, y programas de formación internacional en fisioterapia deportiva.</p>
+          </div>
+        </div>
+      </div>
+      <a href="servicios.html" class="section-link reveal" data-i18n="expertise.moreLink">Ver todos los servicios</a>
+    </div>
+  </section>
+
+  <section id="highlights">
+    <div class="container">
+      <h2 class="section-title reveal" data-i18n="highlights.title">Trabajo reciente.</h2>
+      <div class="bento">
+        <div class="bento-tile bento-featured reveal">
+          <img src="proyecto-1.jpg" class="bento-photo" data-i18n-alt="highlights.card1.photoAlt" alt="Clase de ecografía de miembro inferior" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="bento-photo-placeholder">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4-4-5 5-2-2-4 4"/></svg>
+            <span data-i18n="highlights.card1.placeholder">Añade proyecto-1.jpg</span>
+          </div>
+          <div class="bento-body">
+            <span class="bento-type" data-i18n="highlights.card1.type">Docencia</span>
+            <h3 data-i18n="highlights.card1.title">Docencia internacional</h3>
+            <p data-i18n="highlights.card1.text">Clases de grado y posgrado en universidades como Alfonso X el Sabio, Savonia (Finlandia) y Lunex (Luxemburgo).</p>
+            <span class="bento-caption" data-i18n="highlights.card1.caption">Máster en Fisioterapia Deportiva, UAX.</span>
+          </div>
+        </div>
+        <div class="bento-tile bento-small reveal">
+          <img src="proyecto-2.jpg" class="bento-photo" data-i18n-alt="highlights.card2.photoAlt" alt="Reunión del grupo de investigación" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="bento-photo-placeholder">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4-4-5 5-2-2-4 4"/></svg>
+            <span data-i18n="highlights.card2.placeholder">Añade proyecto-2.jpg</span>
+          </div>
+          <div class="bento-body">
+            <span class="bento-type" data-i18n="highlights.card2.type">Investigación</span>
+            <h3 data-i18n="highlights.card2.title">Proyecto europeo EBP</h3>
+            <p data-i18n="highlights.card2.text">Práctica Basada en la Evidencia aplicada a la fisioterapia, en colaboración con universidades europeas.</p>
+            <span class="bento-caption" data-i18n="highlights.card2.caption">ENPHE Spring Seminar, Aalborg (Dinamarca).</span>
+          </div>
+        </div>
+        <div class="bento-tile bento-small reveal">
+          <img src="proyecto-3.jpg" class="bento-photo" data-i18n-alt="highlights.card3.photoAlt" alt="Vendaje funcional de tobillo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="bento-photo-placeholder">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-4-4-5 5-2-2-4 4"/></svg>
+            <span data-i18n="highlights.card3.placeholder">Añade proyecto-3.jpg</span>
+          </div>
+          <div class="bento-body">
+            <span class="bento-type" data-i18n="highlights.card3.type">Clínica</span>
+            <h3 data-i18n="highlights.card3.title">Return to Play</h3>
+            <p data-i18n="highlights.card3.text">Fisioterapia con enfoque biopsicosocial y foco en la autonomía del paciente.</p>
+            <span class="bento-caption" data-i18n="highlights.card3.caption">Investigación sobre vendajes y lesiones de tobillo.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajectory">
+    <div class="container">
+      <div class="trajectory-head reveal">
+        <h2 class="section-title" data-i18n="trajectory.title">Formación y experiencia.</h2>
+        <a href="cv.pdf" target="_blank" rel="noopener" class="btn btn-ghost" data-i18n="trajectory.cvButton">Descargar CV</a>
+      </div>
+      <div class="timeline-grid">
+        <div class="timeline-col reveal">
+          <h3 data-i18n="trajectory.colA">Experiencia</h3>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item1.period">2022 - Actual</span>
+            <div class="timeline-role" data-i18n="trajectory.item1.role">Profesora de grado y posgrado</div>
+            <div class="timeline-place" data-i18n="trajectory.item1.place">Grado en Fisioterapia, Doble Grado en Fisioterapia y Ciencias de la Actividad Física y el Deporte, Máster en Fisioterapia Deportiva</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item11.period">2024 - Actual</span>
+            <div class="timeline-role" data-i18n="trajectory.item11.role">Coordinadora de proyectos internacionales</div>
+            <div class="timeline-place" data-i18n="trajectory.item11.place">Programas BIP, representación en ENPHE, programas de intercambio virtual, COILs y desarrollo de proyectos internacionales</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item2.period">2019 - 2023</span>
+            <div class="timeline-role" data-i18n="trajectory.item2.role">Fisioterapeuta y directora de sede Serrano</div>
+            <div class="timeline-place" data-i18n="trajectory.item2.place">Clínica de Fisioterapia H3</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item3.period">2023 - Actual</span>
+            <div class="timeline-role" data-i18n="trajectory.item3.role">Docente colaboradora</div>
+            <div class="timeline-place" data-i18n="trajectory.item3.place">Universidades en Finlandia, Países Bajos y Luxemburgo</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item8.period">2013 - 2019</span>
+            <div class="timeline-role" data-i18n="trajectory.item8.role">Fisioterapeuta de equipos deportivos y clínica</div>
+            <div class="timeline-place" data-i18n="trajectory.item8.place">Fisioterapeuta deportiva en equipos profesionales y tratamiento de atletas en clínica</div>
+          </div>
+        </div>
+        <div class="timeline-col reveal">
+          <h3 data-i18n="trajectory.colB">Formación</h3>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item4.period">2022</span>
+            <div class="timeline-role" data-i18n="trajectory.item4.role">Doctorado en Biomedicina y Ciencias de la Salud</div>
+            <div class="timeline-place" data-i18n="trajectory.item4.place">Mención cum laude</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item5.period">2017</span>
+            <div class="timeline-role" data-i18n="trajectory.item5.role">Máster en Fisioterapia Deportiva</div>
+            <div class="timeline-place" data-i18n="trajectory.item5.place">Universidad Europea de Madrid</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item6.period">2022</span>
+            <div class="timeline-role" data-i18n="trajectory.item6.role">Experto universitario en Sonoanatomía Ecográfica del Aparato Locomotor</div>
+            <div class="timeline-place" data-i18n="trajectory.item6.place">Universidad Europea de Madrid</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item9.period">2015</span>
+            <div class="timeline-role" data-i18n="trajectory.item9.role">Grado en Fisioterapia</div>
+            <div class="timeline-place" data-i18n="trajectory.item9.place">Universidad CEU Cardenal Herrera</div>
+          </div>
+          <div class="timeline-row">
+            <span class="timeline-year mono" data-i18n="trajectory.item7.period">En curso · 2027</span>
+            <div class="timeline-role" data-i18n="trajectory.item7.role">MBA</div>
+            <div class="timeline-place" data-i18n="trajectory.item7.place">Universidad Europea de Madrid</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container reveal">
+      <h2 class="section-title" data-i18n="contact.title">¿Hablamos?</h2>
+      <p class="contact-sub" data-i18n="contact.sub">Propuestas, proyectos de investigación o una consulta clínica. Escríbeme.</p>
+      <a href="mailto:lorena.canosa.c@gmail.com" class="contact-email">lorena.canosa.c@gmail.com</a>
+      <div class="contact-socials">
+        <a href="https://www.linkedin.com/in/lorenacanosa" target="_blank" rel="noopener" class="contact-social-link">LinkedIn</a>
+        <a href="https://www.instagram.com/lorenacanosafisio/" target="_blank" rel="noopener" class="contact-social-link">Instagram</a>
+        <a href="https://orcid.org/0000-0002-3209-8773" target="_blank" rel="noopener" class="contact-social-link">ORCID</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copyright">© 2026 Lorena Canosa Carro.</p>
+    <p data-i18n="footer.tagline">Fisioterapia, docencia e investigación.</p>
+    <a href="aviso-legal.html" class="footer-link" data-i18n="footer.legal">Aviso legal</a>
+  </footer>
+
+  <script>
+    const translations = {
+      es: {
+        nav: { logoName: 'Dra. Lorena Canosa', logoTag: 'Fisioterapia · PhD · MBA', about: 'Sobre mí', trajectory: 'Trayectoria', services: 'Servicios', research: 'Investigación', contact: 'Contacto' },
+        hero: {
+          title: 'La ciencia detrás de <span class="accent">tu recuperación.</span>',
+          sub: 'Doctora en Biomedicina especializada en fisioterapia deportiva, ecografía musculoesquelética y salud de la mujer deportista.',
+          ctaPrimary: 'Ver trayectoria', ctaSecondary: 'Contactar',
+          photoAlt: 'Lorena Canosa, fisioterapeuta', placeholder: 'Añade perfil.jpg'
+        },
+        about: {
+          title: 'Del laboratorio a la camilla.',
+          p1: 'Fisioterapeuta y doctora en Biomedicina, con más de una década combinando práctica clínica, docencia universitaria e investigación. Traduzco la evidencia científica en resultados reales para pacientes y deportistas.',
+          p2: 'Coordino las relaciones internacionales del Departamento de Fisioterapia en la Universidad Europea de Madrid y colaboro con universidades europeas en formación de posgrado e investigación.',
+          photoAlt: 'Lorena Canosa en consulta', placeholder: 'Añade sobre-mi.jpg',
+          pillar1: { title: 'Clínica', text: 'Prevención, tratamiento y Return to Play desde la evidencia.' },
+          pillar2: { title: 'Docencia', text: 'Formación de grado, posgrado y programas internacionales.' },
+          pillar3: { title: 'Investigación', text: 'Proyectos europeos de práctica basada en la evidencia.' }
+        },
+        expertise: {
+          title: 'Cuatro áreas, un mismo enfoque.',
+          card1: { title: 'Ecografía musculoesquelética', text: 'Diagnóstico por imagen para el seguimiento objetivo de lesiones y la toma de decisiones clínicas en deportistas de alto nivel.' },
+          card2: { title: 'Prevención y Return to Play', text: 'Acompañamiento desde la lesión hasta el alta deportiva, con programas de pretemporada para reducir el riesgo.' },
+          card3: { title: 'Consultoría clínica', text: 'Protocolos basados en la evidencia para instituciones deportivas, centros de salud y equipos profesionales.' },
+          card4: { title: 'Docencia y formación', text: 'Clases de grado y posgrado, y programas de formación internacional en fisioterapia deportiva.' },
+          moreLink: 'Ver todos los servicios'
+        },
+        highlights: {
+          title: 'Trabajo reciente.',
+          card1: { type: 'Docencia', title: 'Docencia internacional', text: 'Clases de grado y posgrado en universidades como Alfonso X el Sabio, Savonia (Finlandia) y Lunex (Luxemburgo).', caption: 'Máster en Fisioterapia Deportiva, UAX.', photoAlt: 'Clase de ecografía de miembro inferior', placeholder: 'Añade proyecto-1.jpg' },
+          card2: { type: 'Investigación', title: 'Proyecto europeo EBP', text: 'Práctica Basada en la Evidencia aplicada a la fisioterapia, en colaboración con universidades europeas.', caption: 'ENPHE Spring Seminar, Aalborg (Dinamarca).', photoAlt: 'Reunión del grupo de investigación', placeholder: 'Añade proyecto-2.jpg' },
+          card3: { type: 'Clínica', title: 'Return to Play', text: 'Fisioterapia con enfoque biopsicosocial y foco en la autonomía del paciente.', caption: 'Investigación sobre vendajes y lesiones de tobillo.', photoAlt: 'Vendaje funcional de tobillo', placeholder: 'Añade proyecto-3.jpg' }
+        },
+        trajectory: {
+          title: 'Formación y experiencia.', cvButton: 'Descargar CV', colA: 'Experiencia', colB: 'Formación',
+          item1: { period: '2022 - Actual', role: 'Profesora de grado y posgrado', place: 'Grado en Fisioterapia, Doble Grado en Fisioterapia y Ciencias de la Actividad Física y el Deporte, Máster en Fisioterapia Deportiva' },
+          item11: { period: '2024 - Actual', role: 'Coordinadora de proyectos internacionales', place: 'Programas BIP, representación en ENPHE, programas de intercambio virtual, COILs y desarrollo de proyectos internacionales' },
+          item2: { period: '2019 - 2023', role: 'Fisioterapeuta y directora de sede Serrano', place: 'Clínica de Fisioterapia H3' },
+          item3: { period: '2023 - Actual', role: 'Docente colaboradora', place: 'Universidades en Finlandia, Países Bajos y Luxemburgo' },
+          item8: { period: '2013 - 2019', role: 'Fisioterapeuta de equipos deportivos y clínica', place: 'Fisioterapeuta deportiva en equipos profesionales y tratamiento de atletas en clínica' },
+          item4: { period: '2022', role: 'Doctorado en Biomedicina y Ciencias de la Salud', place: 'Mención cum laude' },
+          item5: { period: '2017', role: 'Máster en Fisioterapia Deportiva', place: 'Universidad Europea de Madrid' },
+          item6: { period: '2022', role: 'Experto universitario en Sonoanatomía Ecográfica del Aparato Locomotor', place: 'Universidad Europea de Madrid' },
+          item9: { period: '2015', role: 'Grado en Fisioterapia', place: 'Universidad CEU Cardenal Herrera' },
+          item7: { period: 'En curso · 2027', role: 'MBA', place: 'Universidad Europea de Madrid' }
+        },
+        contact: { title: '¿Hablamos?', sub: 'Propuestas, proyectos de investigación o una consulta clínica. Escríbeme.' },
+        footer: { copyright: '© 2026 Lorena Canosa Carro.', tagline: 'Fisioterapia, docencia e investigación.', legal: 'Aviso legal' }
+      },
+      en: {
+        nav: { logoName: 'Dr. Lorena Canosa', logoTag: 'Physiotherapy · PhD · MBA', about: 'About', trajectory: 'Career', services: 'Services', research: 'Research', contact: 'Contact' },
+        hero: {
+          title: 'The science behind <span class="accent">your recovery.</span>',
+          sub: 'PhD in Biomedicine specializing in sports physiotherapy, musculoskeletal ultrasound and women\'s health.',
+          ctaPrimary: 'View career', ctaSecondary: 'Contact',
+          photoAlt: 'Lorena Canosa, physiotherapist', placeholder: 'Add perfil.jpg'
+        },
+        about: {
+          title: 'From research to recovery.',
+          p1: 'Physiotherapist and PhD in Biomedicine, with over a decade combining clinical practice, university teaching and research. I translate scientific evidence into real outcomes for patients and athletes.',
+          p2: 'I coordinate international relations for the Physiotherapy Department at Universidad Europea de Madrid and collaborate with European universities on postgraduate education and research.',
+          photoAlt: 'Lorena Canosa in clinic', placeholder: 'Add sobre-mi.jpg',
+          pillar1: { title: 'Clinical', text: 'Prevention, treatment and Return to Play, grounded in evidence.' },
+          pillar2: { title: 'Teaching', text: 'Undergraduate, postgraduate and international training programs.' },
+          pillar3: { title: 'Research', text: 'European projects on evidence-based practice.' }
+        },
+        expertise: {
+          title: 'Four areas, one approach.',
+          card1: { title: 'Musculoskeletal ultrasound', text: 'Imaging diagnostics for objective injury tracking and clinical decision-making in high-level athletes.' },
+          card2: { title: 'Prevention and Return to Play', text: 'Support from injury to discharge, with preseason programs that reduce risk.' },
+          card3: { title: 'Clinical consulting', text: 'Evidence-based protocols for sports institutions, health centers and professional teams.' },
+          card4: { title: 'Teaching and training', text: 'Undergraduate and postgraduate classes, and international training programs in sports physiotherapy.' },
+          moreLink: 'View all services'
+        },
+        highlights: {
+          title: 'Recent work.',
+          card1: { type: 'Teaching', title: 'International teaching', text: 'Undergraduate and postgraduate classes at universities including Alfonso X el Sabio, Savonia (Finland) and Lunex (Luxembourg).', caption: 'Master in Sports Physiotherapy, UAX.', photoAlt: 'Lower limb ultrasound class', placeholder: 'Add proyecto-1.jpg' },
+          card2: { type: 'Research', title: 'European EBP project', text: 'Evidence-Based Practice applied to physiotherapy, in collaboration with European universities.', caption: 'ENPHE Spring Seminar, Aalborg (Denmark).', photoAlt: 'Research group meeting', placeholder: 'Add proyecto-2.jpg' },
+          card3: { type: 'Clinical', title: 'Return to Play', text: 'Physiotherapy with a biopsychosocial approach, focused on patient autonomy.', caption: 'Research on taping and ankle injuries.', photoAlt: 'Functional ankle taping', placeholder: 'Add proyecto-3.jpg' }
+        },
+        trajectory: {
+          title: 'Experience and training.', cvButton: 'Download CV', colA: 'Experience', colB: 'Education',
+          item1: { period: '2022 - Present', role: 'Lecturer, undergraduate and postgraduate', place: 'BSc Physiotherapy, Dual BSc Physiotherapy and Sport Sciences, MSc Sports Physiotherapy' },
+          item11: { period: '2024 - Present', role: 'Coordinator of international projects', place: 'BIP programmes, ENPHE representation, virtual exchange programmes, COILs and international project development' },
+          item2: { period: '2019 - 2023', role: 'Physiotherapist and director, Serrano site', place: 'Clínica de Fisioterapia H3' },
+          item3: { period: '2023 - Present', role: 'Visiting lecturer', place: 'Universities in Finland, the Netherlands and Luxembourg' },
+          item8: { period: '2013 - 2019', role: 'Sports team and clinical physiotherapist', place: 'Team physiotherapist for professional clubs and clinical treatment of athletes' },
+          item4: { period: '2022', role: 'PhD in Biomedicine and Health Sciences', place: 'Cum laude' },
+          item5: { period: '2017', role: 'Master in Sports Physiotherapy', place: 'Universidad Europea de Madrid' },
+          item6: { period: '2022', role: 'University expert in musculoskeletal ultrasound sonoanatomy', place: 'Universidad Europea de Madrid' },
+          item9: { period: '2015', role: 'BSc (Hons) Physiotherapy', place: 'Universidad CEU Cardenal Herrera' },
+          item7: { period: 'Ongoing · 2027', role: 'MBA', place: 'Universidad Europea de Madrid' }
+        },
+        contact: { title: 'Let\'s talk.', sub: 'Proposals, research projects or a clinical inquiry. Write to me.' },
+        footer: { copyright: '© 2026 Lorena Canosa Carro.', tagline: 'Physiotherapy, teaching and research.', legal: 'Legal notice' }
+      }
+    };
+
+    const langToggle = document.getElementById('langToggle');
+    const storageKey = 'lorena-v2-language';
+    let currentLang = localStorage.getItem(storageKey);
+    if (!['es', 'en'].includes(currentLang)) currentLang = 'es';
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const value = node.getAttribute('data-i18n').split('.').reduce((acc, k) => acc?.[k], t);
+        if (typeof value === 'string') node.textContent = value;
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach((node) => {
+        const value = node.getAttribute('data-i18n-html').split('.').reduce((acc, k) => acc?.[k], t);
+        if (typeof value === 'string') node.innerHTML = value;
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach((node) => {
+        const value = node.getAttribute('data-i18n-alt').split('.').reduce((acc, k) => acc?.[k], t);
+        if (typeof value === 'string') node.setAttribute('alt', value);
+      });
+
+      langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+      langToggle.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a español');
+    }
+
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      localStorage.setItem(storageKey, currentLang);
+      applyTranslations(currentLang);
+    });
+
+    /* Mobile nav dropdown */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+    navLinks.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menú');
+      });
+    });
+
+    /* Nav shrink: IntersectionObserver on a sentinel, no scroll listener. */
+    const navbar = document.getElementById('navbar');
+    const sentinel = document.getElementById('scroll-sentinel');
+    new IntersectionObserver((entries) => {
+      navbar.classList.toggle('scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+
+    /* Reveal-on-scroll stagger. */
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    /* Safety net: guarantee the hero photo is visible even if the entry
+       animation fails to fire on a particular device/browser. */
+    setTimeout(() => {
+      const heroPhoto = document.querySelector('.hero-photo');
+      if (heroPhoto) {
+        heroPhoto.style.opacity = '1';
+        heroPhoto.style.transform = 'scale(1)';
+        heroPhoto.style.filter = 'grayscale(30%) contrast(1.04)';
+      }
+    }, 1500);
+
+    applyTranslations(currentLang);
+  </script>
+</body>
+</html>
