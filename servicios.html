@@ -1,0 +1,475 @@
+<!--
+  Página adicional de la propuesta v2 (design-taste-frontend / SKILL2.md).
+  Mismo sistema visual que index.html: reutiliza tokens, tipografía,
+  patrón de ledger y la navegación (con enlaces de vuelta a index.html
+  para los anclajes que viven en la página principal).
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicios - Lorena Canosa</title>
+  <meta name="description" content="Servicios de Lorena Canosa: fisioterapia clínica, prehabilitación, rehabilitación, prevención, consultoría individual y para equipos deportivos, y formación." />
+  <meta name="theme-color" content="#101312" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-small.png" />
+  <link rel="icon" type="image/png" sizes="440x440" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <style>
+    /* Self-hosted fonts: no request to Google's servers at page load (see GDPR note in chat) */
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/ibm-plex-mono-400-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/ibm-plex-mono-400-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/ibm-plex-mono-500-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'IBM Plex Mono'; font-style: normal; font-weight: 500; font-display: swap; src: url('fonts/ibm-plex-mono-500-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 300 600; font-display: swap; src: url('fonts/public-sans-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Public Sans'; font-style: normal; font-weight: 300 600; font-display: swap; src: url('fonts/public-sans-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500 700; font-display: swap; src: url('fonts/plus-jakarta-sans-latin.woff2') format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+    @font-face { font-family: 'Plus Jakarta Sans'; font-style: normal; font-weight: 500 700; font-display: swap; src: url('fonts/plus-jakarta-sans-latin-ext.woff2') format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+    :root {
+      --bg: #F5F6F3;
+      --bg-soft: #ECEDE9;
+      --bg-dark: #101312;
+      --fg: #101312;
+      --fg-soft: #4B4F4C;
+      --fg-faint: #83867F;
+      --line: #DEDFDA;
+      --accent: #1A47CC;
+      --accent-on-dark: #6B8FEC;
+      --accent-soft: #E8EEFB;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --container: 1280px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121513;
+        --bg-soft: #191D1A;
+        --bg-dark: #0B0D0C;
+        --fg: #F2F3F0;
+        --fg-soft: #B7BAB4;
+        --fg-faint: #7D8079;
+        --line: rgba(255,255,255,0.12);
+        --accent: #6B8FEC;
+        --accent-on-dark: #6B8FEC;
+        --accent-soft: rgba(107,143,236,0.16);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body { font-family: 'Public Sans', sans-serif; font-weight: 300; background: var(--bg); color: var(--fg); line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    .mono { font-family: 'IBM Plex Mono', monospace; }
+    .container { max-width: var(--container); margin-inline: auto; }
+    a { color: inherit; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.03;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+      background: var(--accent); transform-origin: left; transform: scaleX(0);
+      z-index: 300;
+      animation-name: grow-progress;
+      animation-timeline: scroll(root);
+      animation-fill-mode: both;
+    }
+    @keyframes grow-progress { to { transform: scaleX(1); } }
+    #scroll-sentinel { position: absolute; top: 0; left: 0; height: 44px; width: 1px; }
+
+    /* ── NAV (idéntico a index.html) ── */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 250ms var(--ease-out), box-shadow 250ms var(--ease-out); }
+    nav.scrolled { padding-block: 0.65rem; box-shadow: 0 2px 24px rgba(26,71,204,0.08); }
+    .nav-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.1rem 4rem; }
+    .nav-toggle { display: none; flex-direction: column; justify-content: center; align-items: stretch; gap: 5px; width: 32px; height: 32px; padding: 0; border: none; background: transparent; cursor: pointer; }
+    .nav-toggle span { display: block; height: 2px; background: var(--fg); transition: transform 250ms var(--ease-out), opacity 250ms var(--ease-out); }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    nav.scrolled .nav-inner { padding-block: 0.75rem; }
+    .nav-logo { display: inline-flex; align-items: baseline; gap: 0.6rem; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--fg); white-space: nowrap; }
+    .nav-logo-tag { font-size: 0.68rem; color: var(--fg-faint); letter-spacing: 0.03em; }
+    .nav-logo-tag::before { content: '·'; margin-right: 0.6rem; color: var(--fg-faint); }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { position: relative; font-size: 0.85rem; color: var(--fg-soft); text-decoration: none; padding-bottom: 0.3rem; transition: color 200ms var(--ease-out); }
+    .nav-links a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--accent); transition: right 250ms var(--ease-out); }
+    .nav-links a:hover { color: var(--fg); }
+    .nav-links a:hover::after { right: 0; }
+    .nav-links a[aria-current="page"] { color: var(--fg); }
+    .nav-links a[aria-current="page"]::after { right: 0; }
+    .nav-actions { display: flex; align-items: center; gap: 1.5rem; }
+    .lang-toggle { font-family: 'IBM Plex Mono', monospace; border: 1px solid var(--line); background: transparent; color: var(--fg); padding: 0.5rem 0.8rem; font-size: 0.75rem; letter-spacing: 0.04em; cursor: pointer; transition: border-color 200ms var(--ease-out), color 200ms var(--ease-out), transform 160ms var(--ease-out); }
+    .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-toggle:active { transform: scale(0.95); }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 1.6rem; font-size: 0.85rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: transform 160ms var(--ease-out), background 200ms var(--ease-out), border-color 200ms var(--ease-out), opacity 200ms var(--ease-out); }
+    .btn-primary { background: var(--fg); color: var(--bg); }
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0) scale(0.97); }
+
+    /* ── SECTIONS ── */
+    section { padding: clamp(4rem, 8vw, 7rem) 4rem; }
+    #services-hero { padding-top: calc(68px + clamp(3rem, 6vw, 5rem)); }
+    .section-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--fg); }
+    .page-sub { font-size: 1.05rem; font-weight: 300; color: var(--fg-soft); max-width: 46ch; line-height: 1.7; margin-top: 1rem; }
+
+    /* ── SERVICE GROUPS (reutiliza el patrón ledger) ── */
+    .service-group { margin-bottom: 4rem; }
+    .service-group:last-child { margin-bottom: 0; }
+    .service-group > h3 { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--fg-faint); text-transform: uppercase; margin-bottom: 1.25rem; }
+    .ledger { border-top: 1px solid var(--line); }
+    .ledger-row { position: relative; display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; padding-block: 2rem; border-bottom: 1px solid var(--line); cursor: pointer; transition: background 250ms var(--ease-out); }
+    .ledger-row::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--accent); transform: scaleY(0); transform-origin: top; transition: transform 300ms var(--ease-out); }
+    .ledger-row:hover, .ledger-row:focus-visible { background: var(--accent-soft); }
+    .ledger-row:hover::before, .ledger-row:focus-visible::before { transform: scaleY(1); }
+    .ledger-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+    .ledger-num { font-family: 'IBM Plex Mono', monospace; font-size: clamp(1.3rem, 2vw, 1.7rem); color: var(--accent); line-height: 1; }
+    .ledger-body h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--fg); margin-bottom: 0.4rem; }
+    .ledger-body p { font-size: 0.9rem; color: var(--fg-soft); font-weight: 300; line-height: 1.65; max-width: 60ch; }
+
+    /* ── Flip on click: front = description, back = pricing CTA ── */
+    .ledger-flip { position: relative; min-height: 5.5rem; overflow: hidden; }
+    .ledger-face-front { transition: transform 450ms var(--ease-in-out), opacity 450ms var(--ease-in-out); }
+    .ledger-face-back { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateY(14px); pointer-events: none; display: flex; flex-direction: column; justify-content: center; transition: transform 450ms var(--ease-in-out), opacity 450ms var(--ease-in-out), visibility 0s linear 450ms; }
+    .ledger-face-back p { color: var(--fg-soft); font-weight: 300; }
+    .pub-link-inline { color: var(--accent); font-weight: 400; text-decoration: underline; text-underline-offset: 2px; }
+    .ledger-row.flipped .ledger-face-front { opacity: 0; transform: translateY(-14px); pointer-events: none; }
+    .ledger-row.flipped .ledger-face-back { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition: transform 450ms var(--ease-in-out), opacity 450ms var(--ease-in-out), visibility 0s linear 0s; }
+
+    /* ── CLOSING CTA ── */
+    #services-contact { background: var(--bg-soft); text-align: center; }
+    #services-contact .container { max-width: 560px; margin-inline: auto; }
+    .page-sub-centered { font-size: 1rem; font-weight: 300; color: var(--fg-soft); margin-top: 1rem; }
+
+    /* ── FOOTER ── */
+    footer { padding: 2rem 4rem; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    footer p { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--fg-faint); }
+    .footer-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--fg-faint); text-decoration: none; border-bottom: 1px solid transparent; transition: color 200ms var(--ease-out), border-color 200ms var(--ease-out); }
+    .footer-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+      #scroll-progress { animation: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1080px) {
+      .nav-inner { padding: 1rem 2rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-logo-tag { display: none; }
+      section { padding: 4rem 2rem; }
+    }
+    @media (max-width: 620px) {
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--bg); border-bottom: 1px solid var(--line);
+        max-height: 0; overflow: hidden;
+        transition: max-height 300ms var(--ease-in-out);
+      }
+      .nav-links.open { max-height: 320px; }
+      .nav-links li { border-top: 1px solid var(--line); }
+      .nav-links a { display: block; padding: 1rem 1.5rem; }
+      .nav-links a::after { display: none; }
+      .ledger-row { grid-template-columns: 56px 1fr; }
+      footer { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-sentinel" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <nav id="navbar">
+    <div class="nav-inner container">
+      <a href="index.html#hero" class="nav-logo"><span data-i18n="nav.logoName">Dra. Lorena Canosa</span> <span class="nav-logo-tag mono" data-i18n="nav.logoTag">Fisioterapia · PhD · MBA</span></a>
+      <div class="nav-actions">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#about" data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="index.html#trajectory" data-i18n="nav.trajectory">Trayectoria</a></li>
+          <li><a href="servicios.html" aria-current="page" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="investigacion.html" data-i18n="nav.research">Investigación</a></li>
+          <li><a href="index.html#contact" data-i18n="nav.contact">Contacto</a></li>
+        </ul>
+        <button id="langToggle" class="lang-toggle" type="button" aria-label="Cambiar idioma">EN</button>
+        <button id="navToggle" class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <section id="services-list">
+    <div class="container">
+      <h1 class="section-title reveal" data-i18n="servicesHero.title">Servicios.</h1>
+      <p class="page-sub reveal" data-i18n="servicesHero.sub">Fisioterapia clínica, consultoría y formación, siempre desde la evidencia científica.</p>
+      <div class="service-group reveal" style="margin-top: 3.5rem;">
+        <h3 data-i18n="services.groupClinical">Clínica</h3>
+        <div class="ledger">
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item1.title">
+            <span class="ledger-num">01</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item1.title">Fisioterapia</h3>
+                <p data-i18n="services.item1.text">Consulta telemática: historia clínica completa, hipótesis diagnóstica y propuesta de un plan de tratamiento individualizado.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item1.title">Fisioterapia</h3>
+                <p><span data-i18n="services.priceClinical">Cada tratamiento se adapta a tu caso. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item2.title">
+            <span class="ledger-num">02</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item2.title">Prehabilitación</h3>
+                <p data-i18n="services.item2.text">Preparación física antes de una cirugía o una vuelta a la competición.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item2.title">Prehabilitación</h3>
+                <p><span data-i18n="services.priceClinical">Cada tratamiento se adapta a tu caso. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item3.title">
+            <span class="ledger-num">03</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item3.title">Rehabilitación</h3>
+                <p data-i18n="services.item3.text">Recuperación funcional tras lesión o cirugía, con seguimiento objetivo.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item3.title">Rehabilitación</h3>
+                <p><span data-i18n="services.priceClinical">Cada tratamiento se adapta a tu caso. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item4.title">
+            <span class="ledger-num">04</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item4.title">Prevención</h3>
+                <p data-i18n="services.item4.text">Valoración de riesgo y programas de pretemporada para reducir lesiones.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item4.title">Prevención</h3>
+                <p><span data-i18n="services.priceClinical">Cada tratamiento se adapta a tu caso. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-group reveal">
+        <h3 data-i18n="services.groupConsulting">Consultoría</h3>
+        <div class="ledger">
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item5.title">
+            <span class="ledger-num">01</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item5.title">Consultoría individual</h3>
+                <p data-i18n="services.item5.text">Diseño de un programa personalizado para mejorar los tiempos de recuperación, optimizar el rendimiento y prevenir lesiones y recidivas.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item5.title">Consultoría individual</h3>
+                <p><span data-i18n="services.priceConsulting">Cada programa se diseña a medida. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item6.title">
+            <span class="ledger-num">02</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item6.title">Consultoría para equipos deportivos</h3>
+                <p data-i18n="services.item6.text">Protocolos de prevención y readaptación para cuerpos técnicos y clubes.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item6.title">Consultoría para equipos deportivos</h3>
+                <p><span data-i18n="services.priceConsulting">Cada programa se diseña a medida. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="service-group reveal">
+        <h3 data-i18n="services.groupTraining">Formación</h3>
+        <div class="ledger">
+          <div class="ledger-row" role="button" tabindex="0" aria-pressed="false" data-i18n-aria-label="services.item7.title">
+            <span class="ledger-num">01</span>
+            <div class="ledger-flip">
+              <div class="ledger-face ledger-face-front">
+                <h3 data-i18n="services.item7.title">Cursos y formaciones</h3>
+                <p data-i18n="services.item7.text">Formación de posgrado para profesionales de la fisioterapia, y cursos para empresas sobre salud en el puesto de trabajo y prevención de lesiones.</p>
+              </div>
+              <div class="ledger-face ledger-face-back">
+                <h3 data-i18n="services.item7.title">Cursos y formaciones</h3>
+                <p><span data-i18n="services.priceTraining">El contenido se adapta a cada equipo. Consulta las tarifas en</span> <a href="mailto:lorena.canosa.c@gmail.com" class="pub-link-inline">lorena.canosa.c@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="services-contact">
+    <div class="container reveal">
+      <h2 class="section-title" data-i18n="servicesContact.title">¿Quieres más información?</h2>
+      <p class="page-sub-centered" data-i18n="servicesContact.sub">Cuéntame qué necesitas y te responderé personalmente.</p>
+      <a href="index.html#contact" class="btn btn-primary" style="margin-top:1.75rem;" data-i18n="servicesContact.cta">Contactar</a>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer.copyright">© 2026 Lorena Canosa Carro.</p>
+    <p data-i18n="footer.tagline">Fisioterapia, docencia e investigación.</p>
+    <a href="aviso-legal.html" class="footer-link" data-i18n="footer.legal">Aviso legal</a>
+  </footer>
+
+  <script>
+    const translations = {
+      es: {
+        nav: { logoName: 'Dra. Lorena Canosa', logoTag: 'Fisioterapia · PhD · MBA', about: 'Sobre mí', trajectory: 'Trayectoria', services: 'Servicios', research: 'Investigación', contact: 'Contacto' },
+        servicesHero: { title: 'Servicios.', sub: 'Fisioterapia clínica, consultoría y formación, siempre desde la evidencia científica.' },
+        services: {
+          groupClinical: 'Clínica', groupConsulting: 'Consultoría', groupTraining: 'Formación',
+          item1: { title: 'Fisioterapia', text: 'Consulta telemática: historia clínica completa, hipótesis diagnóstica y propuesta de un plan de tratamiento individualizado.' },
+          item2: { title: 'Prehabilitación', text: 'Preparación física antes de una cirugía o una vuelta a la competición.' },
+          item3: { title: 'Rehabilitación', text: 'Recuperación funcional tras lesión o cirugía, con seguimiento objetivo.' },
+          item4: { title: 'Prevención', text: 'Valoración de riesgo y programas de pretemporada para reducir lesiones.' },
+          item5: { title: 'Consultoría individual', text: 'Diseño de un programa personalizado para mejorar los tiempos de recuperación, optimizar el rendimiento y prevenir lesiones y recidivas.' },
+          item6: { title: 'Consultoría para equipos deportivos', text: 'Protocolos de prevención y readaptación para cuerpos técnicos y clubes.' },
+          item7: { title: 'Cursos y formaciones', text: 'Formación de posgrado para profesionales de la fisioterapia, y cursos para empresas sobre salud en el puesto de trabajo y prevención de lesiones.' },
+          priceClinical: 'Cada tratamiento se adapta a tu caso. Consulta las tarifas en',
+          priceConsulting: 'Cada programa se diseña a medida. Consulta las tarifas en',
+          priceTraining: 'El contenido se adapta a cada equipo. Consulta las tarifas en'
+        },
+        servicesContact: { title: '¿Quieres más información?', sub: 'Cuéntame qué necesitas y te responderé personalmente.', cta: 'Contactar' },
+        footer: { copyright: '© 2026 Lorena Canosa Carro.', tagline: 'Fisioterapia, docencia e investigación.', legal: 'Aviso legal' }
+      },
+      en: {
+        nav: { logoName: 'Dr. Lorena Canosa', logoTag: 'Physiotherapy · PhD · MBA', about: 'About', trajectory: 'Career', services: 'Services', research: 'Research', contact: 'Contact' },
+        servicesHero: { title: 'Services.', sub: 'Clinical physiotherapy, consulting and training, always grounded in scientific evidence.' },
+        services: {
+          groupClinical: 'Clinical', groupConsulting: 'Consulting', groupTraining: 'Training',
+          item1: { title: 'Physiotherapy', text: 'Telehealth consultation: full clinical history, diagnostic hypothesis and a personalized treatment plan.' },
+          item2: { title: 'Prehabilitation', text: 'Physical preparation ahead of surgery or a return to competition.' },
+          item3: { title: 'Rehabilitation', text: 'Functional recovery after injury or surgery, with objective follow-up.' },
+          item4: { title: 'Prevention', text: 'Risk assessment and preseason programs to reduce injury.' },
+          item5: { title: 'Individual consulting', text: 'A personalized program to improve recovery times, optimize performance and prevent injuries and recurrences.' },
+          item6: { title: 'Sports team consulting', text: 'Prevention and return-to-play protocols for coaching staff and clubs.' },
+          item7: { title: 'Courses and training', text: 'Postgraduate training for physiotherapy professionals, and corporate courses on workplace health and injury prevention.' },
+          priceClinical: 'Every treatment is tailored to you. Check pricing at',
+          priceConsulting: 'Every program is designed around your goals. Check pricing at',
+          priceTraining: 'Content is adapted to each team. Check pricing at'
+        },
+        servicesContact: { title: 'Want to know more?', sub: 'Tell me what you need and I will reply personally.', cta: 'Contact' },
+        footer: { copyright: '© 2026 Lorena Canosa Carro.', tagline: 'Physiotherapy, teaching and research.', legal: 'Legal notice' }
+      }
+    };
+
+    const langToggle = document.getElementById('langToggle');
+    const storageKey = 'lorena-v2-language';
+    let currentLang = localStorage.getItem(storageKey);
+    if (!['es', 'en'].includes(currentLang)) currentLang = 'es';
+
+    function applyTranslations(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach((node) => {
+        const value = node.getAttribute('data-i18n').split('.').reduce((acc, k) => acc?.[k], t);
+        if (typeof value === 'string') node.textContent = value;
+      });
+      document.querySelectorAll('[data-i18n-aria-label]').forEach((node) => {
+        const value = node.getAttribute('data-i18n-aria-label').split('.').reduce((acc, k) => acc?.[k], t);
+        const hint = lang === 'es' ? 'Pulsa para ver tarifas' : 'Press to see pricing';
+        if (typeof value === 'string') node.setAttribute('aria-label', `${value}. ${hint}`);
+      });
+
+      langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+      langToggle.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a español');
+    }
+
+    langToggle.addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      localStorage.setItem(storageKey, currentLang);
+      applyTranslations(currentLang);
+    });
+
+    /* Mobile nav dropdown */
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+    navLinks.querySelectorAll('a').forEach((a) => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.setAttribute('aria-label', 'Abrir menú');
+      });
+    });
+
+    const navbar = document.getElementById('navbar');
+    const sentinel = document.getElementById('scroll-sentinel');
+    new IntersectionObserver((entries) => {
+      navbar.classList.toggle('scrolled', !entries[0].isIntersecting);
+    }).observe(sentinel);
+
+    /* Flip cards: click or keyboard (Enter/Space) toggles pricing CTA. */
+    document.querySelectorAll('.ledger-row[role="button"]').forEach((row) => {
+      const toggle = () => {
+        const flipped = row.classList.toggle('flipped');
+        row.setAttribute('aria-pressed', String(flipped));
+      };
+      row.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return; // let the mailto link work on its own, don't re-flip
+        toggle();
+      });
+      row.addEventListener('keydown', (e) => {
+        if (e.target.closest('a')) return; // let Enter open the mail client, not flip the card
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach((el) => revealObserver.observe(el));
+
+    applyTranslations(currentLang);
+  </script>
+</body>
+</html>
